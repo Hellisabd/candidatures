@@ -8,14 +8,14 @@ argument-hint: "URL de l'offre, plusieurs URL, 'last' ou 'current' (formulaire d
 
 Passe d'une offre à une candidature **envoyée et notée dans le tracker**, sans rien oublier (pièce jointe, relance J+7). Rien ne part sans validation.
 
-## Quick Start
+## Démarrage rapide
 
 - `/candidatures:apply https://...` : postule à une offre
 - `/candidatures:apply url1 url2 url3` : plusieurs offres, un seul récapitulatif à valider
 - `/candidatures:apply last` : dernière offre enregistrée
 - `/candidatures:apply current` : formulaire déjà ouvert dans l'onglet actif
 
-## Data Directory
+## Dossier de données
 
 Résous le dossier de données avec `shared/references/data-directory.md`.
 
@@ -89,7 +89,7 @@ Voir `shared/references/ats-patterns.md` (Greenhouse, Lever, Workday). Pour Tale
 
 ---
 
-## Permissions Required
+## Autorisations nécessaires
 
 Ajoute à `~/.claude/settings.json` :
 

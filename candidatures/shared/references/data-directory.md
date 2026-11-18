@@ -1,33 +1,36 @@
-# Data Directory Resolution
+# Résolution du dossier de données
 
-All user data lives in a `.candidatures/` folder. Follow these steps to find it:
+Toutes les données de l'utilisateur sont dans un dossier `.candidatures/`. Pour le trouver :
 
-## Resolution Algorithm
+## Algorithme
 
-1. Check the current working directory for `.candidatures/` — use it if found
-2. Check `~/.candidatures/` — use it if found
-3. If neither exists:
-   - **setup skill**: this is a fresh setup — create it in Step 1
-   - **all other skills**: tell the user to run `/candidatures:setup` first, then stop
+1. Cherche `.candidatures/` dans le dossier de travail courant : utilise-le s'il existe
+2. Cherche `~/.candidatures/` : utilise-le s'il existe
+3. Si aucun n'existe :
+   - **skill setup** : c'est une première installation, crée le dossier à l'étape 1
+   - **tous les autres skills** : demande à l'utilisateur de lancer d'abord `/candidatures:setup`, puis arrête-toi
 
-## Ephemeral Session Warning
+## Avertissement pour les sessions éphémères
 
-If no folder is selected (i.e. the working directory looks like an ephemeral session path such as `/sessions/...`), stop and tell the user:
+Si aucun dossier n'est sélectionné (le dossier de travail ressemble à un chemin de session éphémère, comme `/sessions/...`), arrête-toi et dis à l'utilisateur :
 
-> "Before we start, you need to select a folder so your data persists between sessions. Click 'Work in a folder' and select your home directory, then try again."
+> « Avant de commencer, il faut sélectionner un dossier pour que vos données soient conservées d'une session à l'autre. Choisissez « Work in a folder », sélectionnez votre dossier personnel, puis recommencez. »
 
-Do NOT proceed without a persistent folder.
+Ne continue PAS sans dossier persistant.
 
-## DATA_DIR Tree
+## Arborescence de DATA_DIR
 
-All paths in skill instructions use `DATA_DIR` to mean whichever `.candidatures/` directory was found or created.
+Dans les consignes des skills, `DATA_DIR` désigne le dossier `.candidatures/` trouvé ou créé.
 
 ```
 DATA_DIR/
-  resume/              # Your resume PDF/DOCX
-  preferences.md       # Job matching rules
-  profile.md           # Work history from interview
-  linkedin-contacts.csv # LinkedIn connections (optional)
-  jobs/                # Per-job application folders
-  job-history.md       # Running log from job-search
+  resume/               # Ton CV (PDF ou DOCX)
+  preferences.md        # Règles de tri des offres, ton des lettres, archivage, suivi
+  profile.md            # Parcours issu de l'interview
+  reponses-types.md     # Réponses aux formulaires de candidature
+  lettre-modele-ton.md  # Modèle de ton des lettres (facultatif)
+  linkedin-contacts.csv # Connexions LinkedIn (facultatif)
+  suivi.md              # Suivi des candidatures (mode local)
+  jobs/                 # Un dossier par offre ou entreprise
+  job-history.md        # Journal des recherches de job-search
 ```

@@ -1,10 +1,10 @@
-# Priority Hierarchy
+# Hiérarchie des priorités
 
-When instructions conflict, resolve them in this order (highest priority first):
+Quand des consignes se contredisent, tranche dans cet ordre (la plus haute priorité d'abord) :
 
-1. **Accuracy** — never fabricate, inflate, or assume facts not in the source materials
-2. **User corrections** — explicit corrections from the user override all generated content
-3. **Workflow steps** — follow the skill's step-by-step workflow as written
-4. **Writing quality** — clear, concise, human-sounding language (Flesch score > 90 where applicable)
-5. **Output format** — consistent section headers and structure per the Response Format
-6. **Tone and style** — professional but approachable; match the role's seniority level
+1. **Exactitude** : ne jamais inventer, gonfler ni supposer des faits absents des sources
+2. **Corrections de l'utilisateur** : une correction explicite l'emporte sur tout contenu généré
+3. **Étapes du workflow** : suis le déroulé du skill tel qu'il est écrit
+4. **Qualité d'écriture** : langage clair, concis, naturel (phrases courtes, mots simples)
+5. **Format de sortie** : titres de sections et structure cohérents avec le format de réponse
+6. **Ton et style** : professionnel mais accessible ; adapté au niveau du poste visé

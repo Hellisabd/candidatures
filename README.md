@@ -2,7 +2,7 @@
 
 > Plugin [Claude Code](https://claude.ai/code) pour candidater en France à une **alternance ou à un stage** : un profil construit avec toi, un CV adapté à chaque offre, des lettres de motivation (sur offre ou spontanées), la recherche d'offres et l'aide aux formulaires. Rien n'est inventé, rien n'est envoyé sans ton accord.
 
-**Statut :** version 1.0.0. `setup`, `cover-letter` (candidature spontanée) et `tailor-resume` ont été testés sur un profil fictif ; la lettre sur offre est moins éprouvée. `job-search` et `apply`, qui pilotent le navigateur, n'ont pas encore été essayés sur de vraies offres.
+**Statut :** version 1.1.0. `setup`, `cover-letter` (candidature spontanée) et `tailor-resume` ont été testés sur un profil fictif. `job-search` a été essayé sur de vraies offres (La Bonne Alternance, LinkedIn, Welcome to the Jungle). La lettre sur offre et `apply`, qui envoie des candidatures, restent à éprouver.
 
 ## Pourquoi ce plugin ?
 
@@ -53,7 +53,7 @@ Prérequis : Claude Code. Le dépôt est **privé** : ton compte GitHub doit y a
 Le `setup` te pose des questions (CV, préférences, interview sur ton parcours projet par projet) et crée tes fichiers.
 
 **Pour aller plus loin :**
-- **Navigateur** : `job-search` et `apply` utilisent l'extension **Claude in Chrome**. `tailor-resume` et `cover-letter` s'en servent seulement pour lire une offre depuis son adresse ; en collant le texte de l'offre, elles s'en passent.
+- **Navigateur** : `job-search` et `apply` utilisent l'extension **Claude in Chrome**, connectée au même compte que Claude Code, avec Claude Code lancé par `claude --chrome`. `tailor-resume` et `cover-letter` s'en servent seulement pour lire une offre depuis son adresse ; en collant le texte de l'offre, elles s'en passent.
 - **PDF** : le PDF de la lettre est créé avec Chrome ou Chromium en ligne de commande. Il faut l'un des deux installé.
 
 ## Ce que le plugin refuse de faire

@@ -1,50 +1,50 @@
 ---
 name: setup
 description: Mise en place unique - CV, préférences d'alternance et interview sur le parcours (marché français)
-argument-hint: "'interview' to skip to the interview portion"
+argument-hint: "'interview' pour ne faire que l'interview"
 ---
 
-# Setup Skill
+# Skill de mise en place
 
-> **Priority hierarchy**: See `shared/references/priority-hierarchy.md` for conflict resolution.
+> **Hiérarchie des priorités** : voir `shared/references/priority-hierarchy.md` pour résoudre les conflits.
 
 Mise en place unique : CV, préférences d'alternance et interview sur le parcours, avant d'utiliser les autres skills.
 
-## Quick Start
+## Démarrage rapide
 
-- `/candidatures:setup` - Full onboarding (checks what's missing, does only what's needed)
-- `/candidatures:setup interview` - Just the work history interview (if resume/prefs are already done)
+- `/candidatures:setup` : mise en place complète (vérifie ce qui manque et ne fait que cela)
+- `/candidatures:setup interview` : seulement l'interview sur le parcours (si le CV et les préférences sont déjà faits)
 
-## File Structure
+## Fichiers
 
 ```
 scripts/
-  conduct-interview.md    # Work history interview guide
+  conduct-interview.md    # Guide d'interview sur le parcours
 ```
 
-The profile template is at `shared/templates/profile.md`.
+Le modèle de profil est dans `shared/templates/profile.md`.
 
 ## Langue et marché
 
 Tout est en **français** : ce que tu dis à l'utilisateur et ce que tu écris dans les fichiers. Avant de commencer, lis `shared/references/marche-france.md` : il décrit le contexte français (alternance, CV 1 page, lettre française) et l'emporte sur toute consigne américaine restante.
 
-## Data Directory
+## Dossier de données
 
-Resolve the data directory using `shared/references/data-directory.md`. For setup, if no directory exists this is a fresh install — create it in Step 1.
+Résous le dossier de données avec `shared/references/data-directory.md`. Pour le setup, si aucun dossier n'existe, c'est une première installation : crée-le à l'étape 1.
 
 ---
 
 ## Workflow
 
-### Step 0: Check What's Already Done
+### Étape 0 : Vérifier ce qui est déjà fait
 
-Resolve the data directory, then check which of these exist and have real content (not just templates): resume, preferences, linkedin-contacts.csv, profile.md, reponses-types.md.
+Résous le dossier de données, puis vérifie lesquels de ces éléments existent et ont un vrai contenu (pas seulement un modèle) : CV, préférences, linkedin-contacts.csv, profile.md, reponses-types.md.
 
-If `$ARGUMENTS` is "interview", skip to Step 3 (but check that a resume exists first).
+Si `$ARGUMENTS` vaut « interview », passe directement à l'étape 4 (après avoir vérifié qu'un CV existe).
 
-If everything exists, tell the user they're good to go and list the available skills. Otherwise, run only the missing phases in order.
+Si tout existe, dis à l'utilisateur qu'il est prêt et liste les skills disponibles. Sinon, ne fais que les phases manquantes, dans l'ordre.
 
-### Step 1: CV
+### Étape 1 : CV
 
 Demande à l'utilisateur son CV. Accepte :
 - Un chemin de fichier (copie-le dans `DATA_DIR/resume/`)
@@ -52,7 +52,7 @@ Demande à l'utilisateur son CV. Accepte :
 
 Confirme l'enregistrement et résume brièvement ce que tu vois (nom, formation en cours, expérience la plus récente, nombre d'expériences et de projets).
 
-### Step 2: Préférences de recherche
+### Étape 2 : Préférences de recherche
 
 Pose une seule question naturelle, en français :
 
@@ -114,7 +114,7 @@ Pose une seule question naturelle, en français :
 
 Crée aussi `DATA_DIR/suivi.md` à partir de `shared/templates/suivi.md` s'il n'existe pas, et le dossier des lettres. Si des éléments manquent, ce n'est pas grave : enregistre ce que tu as. Les informations de rythme, de durée et de date de début seront redemandées au moment de rédiger si elles manquent.
 
-### Step 2bis: Ton des lettres de motivation
+### Étape 2bis : Ton des lettres de motivation
 
 Demande (avec `AskUserQuestion` si disponible) : « Quel ton voulez-vous pour vos lettres de motivation ? »
 - **Classique et chaleureux** : formules d'usage, motivation pour l'entreprise, 5 ou 6 paragraphes (environ 350 mots)
@@ -123,7 +123,7 @@ Demande (avec `AskUserQuestion` si disponible) : « Quel ton voulez-vous pour vo
 
 Enregistre le choix dans `preferences.md` (rubrique « Ton des lettres »). Si l'utilisateur colle un texte, enregistre-le dans `DATA_DIR/lettre-modele-ton.md` avec la mention « registre à imiter, jamais ses faits ».
 
-### Step 3: Contacts LinkedIn (optionnel)
+### Étape 3 : Contacts LinkedIn (optionnel)
 
 Si `DATA_DIR/linkedin-contacts.csv` n'existe pas, propose :
 
@@ -140,7 +140,7 @@ S'il accepte, donne ces instructions :
 
 Enregistre le fichier dans `DATA_DIR/linkedin-contacts.csv`, puis indique le nombre de contacts importés. S'il passe l'étape, continue : elle est facultative.
 
-### Step 4: Interview sur le parcours
+### Étape 4 : Interview sur le parcours
 
 Mène une interview conversationnelle pour construire le profil, en suivant `scripts/conduct-interview.md`. Passe en revue chaque expérience et chaque projet du CV, le plus récent d'abord. Pour chacun, demande :
 
@@ -198,11 +198,11 @@ Mène une interview conversationnelle pour construire le profil, en suivant `scr
 **Thèmes récurrents** : [motifs]
 ```
 
-### Step 4bis: Réponses types pour les formulaires
+### Étape 4bis : Réponses types pour les formulaires
 
 Si `DATA_DIR/reponses-types.md` n'existe pas, crée-le à partir de `shared/templates/reponses-types.md`, du CV, des préférences et du profil, avec ces rubriques : identité et liens, réponses types (contrat, dates, rythme, mobilité, niveau d'études, langues), **années d'expérience par technologie (demande-les à l'utilisateur, ne les devine pas)**, parcours pour les champs Expérience et Formation, réponses ajoutées. Fais valider ce fichier : `/candidatures:apply` s'y réfère pour chaque formulaire.
 
-### Step 5: Résumé
+### Étape 5 : Résumé
 
 ```
 Tout est prêt. Voici ce que nous avons :
@@ -219,18 +219,18 @@ Vous pouvez maintenant utiliser :
 
 ---
 
-## Response Format
+## Format de réponse
 
-Structure the final summary output with these sections:
+Structure le résumé final avec ces sections :
 
 1. **Résumé de la mise en place** : ce qui a été configuré (CV, préférences, contacts, profil), avec quelques détails
 2. **Et ensuite** : les skills que l'utilisateur peut lancer
 
 ---
 
-## Permissions Required
+## Autorisations nécessaires
 
-Add to `~/.claude/settings.json`:
+Ajoute à `~/.claude/settings.json` :
 
 ```json
 {
