@@ -1,0 +1,18 @@
+{
+  "name": "mes-plugins",
+  "owner": {
+    "name": "Basile Grosjean"
+  },
+  "metadata": {
+    "description": "Mes plugins Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "candidatures",
+      "source": "./candidatures",
+      "description": "Candidatures en France : CV, lettres de motivation (alternance et stage), recherche d'offres",
+      "version": "1.0.0",
+      "category": "productivity"
+    }
+  ]
+}

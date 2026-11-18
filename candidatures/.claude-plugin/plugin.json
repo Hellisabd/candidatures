@@ -1,0 +1,15 @@
+{
+  "name": "candidatures",
+  "description": "Candidatures en France : CV, lettres de motivation (alternance et stage), recherche d'offres",
+  "version": "1.0.0",
+  "author": {
+    "name": "Basile Grosjean"
+  },
+  "keywords": [
+    "alternance",
+    "stage",
+    "cv",
+    "lettre-de-motivation",
+    "candidature"
+  ]
+}
